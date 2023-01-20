@@ -3,7 +3,7 @@
 public class Journal
 {
     public List<Entry> _content = new List<Entry>();
-    public List<int> _controlList = new List<int>();
+   
 
     public Journal()
     {}
