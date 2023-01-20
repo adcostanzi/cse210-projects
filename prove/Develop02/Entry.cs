@@ -8,10 +8,11 @@ public class Entry
 
     public Entry()
     {}
-    public void DisplayEntry(Entry item)
+    public void DisplayEntry()
     {
-        Console.WriteLine($"{_date}");
-        Console.WriteLine($"{_prompt}");
-        Console.WriteLine($"{_entry}");
+        Console.WriteLine();
+        Console.WriteLine($"Date: {_date}");
+        Console.WriteLine($"Prompt: {_prompt}");
+        Console.WriteLine($"Your entry: {_entry}");
     }
 }

@@ -17,8 +17,8 @@ public class PromptGenerator
         };
         int lenghtOfList = listOfPrompts.Count;
         string prompt;
-
-        int number = GenerateRandomNumber(lenghtOfList);
+        
+        int number = GenerateRandomNumber(lenghtOfList-1);
 
         prompt = listOfPrompts[number];
 
@@ -27,8 +27,11 @@ public class PromptGenerator
 
     public int GenerateRandomNumber(int lenght)
     {
+       
+        
         Random newNumber = new Random();
         int randomNumber = newNumber.Next(0,lenght); 
+       
         return randomNumber;
     }
 }
