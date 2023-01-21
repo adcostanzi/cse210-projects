@@ -1,11 +1,14 @@
 using System;
 
+
+
 class Program
 {
     static void Main(string[] args)
     {
         var journal = new Journal();
         int answer = 0;
+        string filename;
         Console.WriteLine("Welcome to your Journal!");
         while (answer != 5)
         {
@@ -29,6 +32,18 @@ class Program
             else if (answer == 2)
             {
                 journal.DisplayJournal();
+            }
+            else if (answer == 3)
+            {
+                Console.Write("Please write the name of the file you want to load: ");
+                filename = Console.ReadLine()+".txt";
+                journal.LoadJournal(filename, journal._content);
+            }
+            else if (answer == 4)
+            {
+                Console.Write("Please write a name for the new file: ");
+                filename = Console.ReadLine()+".txt";
+                journal.SaveJournal(filename, journal._content);
             }
         }
         
