@@ -28,23 +28,28 @@ class Program
             if (answer == 1)
             {
                 journal._content.Add(journal.AddEntry());
+                Console.WriteLine("Entry added to Journal!");
             }
             else if (answer == 2)
             {
+                Console.WriteLine("Your Journal:");
                 journal.DisplayJournal();
             }
             else if (answer == 3)
             {
-                Console.Write("Please write the name of the file you want to load: ");
-                filename = Console.ReadLine()+".txt";
+                Console.Write("Please write the name of the file you want to load (do not write extension): ");
+                filename = Console.ReadLine()+".csv";
                 journal.LoadJournal(filename, journal._content);
+                Console.WriteLine("Journal Loaded Sucessfully!");
             }
             else if (answer == 4)
             {
-                Console.Write("Please write a name for the new file: ");
-                filename = Console.ReadLine()+".txt";
+                Console.Write("Please write a name for the new file (do not write extension): ");
+                filename = Console.ReadLine()+".csv";
                 journal.SaveJournal(filename, journal._content);
+                Console.WriteLine("Journal Saved Sucessfully!");
             }
+            
         }
         
         

@@ -1,21 +1,23 @@
 using System.IO;
+using Microsoft.VisualBasic.FileIO;
 
 public class Journal
 {
     public List<Entry> _content = new List<Entry>();
-   
+    public PromptGenerator _newPrompt = new PromptGenerator();
 
     public Journal()
     {}
     public Entry AddEntry()
     {
-        PromptGenerator newPrompt = new PromptGenerator();
+        
         Entry userEntry = new Entry();
         DateTime today = DateTime.Now;
       
         userEntry._date = today.ToShortDateString();
-        userEntry._prompt = newPrompt.GeneratePrompt();
+        userEntry._prompt = this._newPrompt.GeneratePrompt();
         Console.WriteLine(userEntry._prompt);
+        Console.Write("Your entry: ");
         userEntry._entry = Console.ReadLine();      
         return userEntry;
 
@@ -32,20 +34,25 @@ public class Journal
     {
         string[] lines = System.IO.File.ReadAllLines(filename);
         
-
         foreach (string line in lines)
         {
+            
             Entry loadedEntry = new Entry();
-            string[] parts = line.Split("^");
+            
+            string[] parts = line.Split(";");
 
             loadedEntry._date = parts[0];
-            
+                       
             loadedEntry._prompt = parts[1];
             
             loadedEntry._entry = parts[2];
-
+            
             content.Add(loadedEntry);
-        }
+                
+            
+        }        
+        
+        
     }
 
     public void SaveJournal(string filename, List<Entry> content)
@@ -54,7 +61,7 @@ public class Journal
         {
             foreach (Entry newEntry in content)
             {
-                outputFile.WriteLine(newEntry._date + "^" + newEntry._prompt + "^" + newEntry._entry);
+                outputFile.WriteLine(newEntry._date + ";" + newEntry._prompt + ";" +newEntry._entry);
             }
         }
     }
