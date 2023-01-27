@@ -57,12 +57,26 @@ public class Journal
 
     public void SaveJournal(string filename, List<Entry> content)
     {
-        using (StreamWriter outputFile = new StreamWriter(filename))
+        if (!File.Exists(filename))
         {
-            foreach (Entry newEntry in content)
+            using (StreamWriter outputFile = new StreamWriter(filename))
             {
-                outputFile.WriteLine(newEntry._date + ";" + newEntry._prompt + ";" +newEntry._entry);
+                foreach (Entry newEntry in content)
+                {
+                    outputFile.WriteLine(newEntry._date + ";" + newEntry._prompt + ";" +newEntry._entry);
+                }
             }
         }
+        else
+        {
+            using (StreamWriter outputFile = File.AppendText(filename))
+            {
+                foreach (Entry newEntry in content)
+                {
+                    outputFile.WriteLine(newEntry._date + ";" + newEntry._prompt + ";" +newEntry._entry);
+                }
+            }
+        }
+        
     }
 }

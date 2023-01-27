@@ -32,15 +32,31 @@ class Program
             }
             else if (answer == 2)
             {
-                Console.WriteLine("Your Journal:");
-                journal.DisplayJournal();
+                if (journal._content.Count == 0)
+                {
+                    Console.WriteLine("No entries to display.");
+                }
+                else
+                {
+                    Console.WriteLine("Your Journal:");
+                    journal.DisplayJournal();
+                }
+               
             }
             else if (answer == 3)
             {
                 Console.Write("Please write the name of the file you want to load (do not write extension): ");
                 filename = Console.ReadLine()+".csv";
-                journal.LoadJournal(filename, journal._content);
-                Console.WriteLine("Journal Loaded Sucessfully!");
+                if (!File.Exists(filename))
+                {
+                    Console.WriteLine("File was not found.");
+                } 
+                else
+                {
+                    journal.LoadJournal(filename, journal._content);
+                    Console.WriteLine("Journal Loaded Sucessfully!");
+                }
+                
             }
             else if (answer == 4)
             {
