@@ -68,9 +68,6 @@ class Program
             
         }
         
-        
-        
-        
         Console.WriteLine("Remember to come back tomorrow!");
     }
 }
