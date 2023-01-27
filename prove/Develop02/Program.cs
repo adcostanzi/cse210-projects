@@ -51,6 +51,10 @@ class Program
                 {
                     Console.WriteLine("File was not found.");
                 } 
+                else if (filename=="prompts.csv")
+                {
+                    Console.WriteLine("That file is not available for loading.");
+                }
                 else
                 {
                     journal.LoadJournal(filename, journal._content);
@@ -60,8 +64,16 @@ class Program
             }
             else if (answer == 4)
             {
-                Console.Write("Please write a name for the new file (do not write extension): ");
-                filename = Console.ReadLine()+".csv";
+                do
+                {
+                    Console.Write("Please write a name for the new file (do not write extension): ");
+                    filename = Console.ReadLine()+".csv";
+                    if (filename == "prompts.csv")
+                    {
+                        Console.WriteLine("That name cannot be used, please try again with another name.");
+                    }
+                } while (filename == "prompts.csv");
+                
                 journal.SaveJournal(filename, journal._content);
                 Console.WriteLine("Journal Saved Sucessfully!");
             }
