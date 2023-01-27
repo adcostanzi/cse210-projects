@@ -1,6 +1,10 @@
 using System;
 
 /*
+Student: Andres Costanzi
+Course: CSE 210
+Instructor: Eric Carter 
+
 In order to exceed core requirements I did the following:
 
 - Added functionality so the prompts wont repeat until all of them are used
