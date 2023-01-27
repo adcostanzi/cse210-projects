@@ -1,6 +1,13 @@
 using System;
 
+/*
+In order to exceed core requirements I did the following:
 
+- Added functionality so the prompts wont repeat until all of them are used
+- Prompts are loaded from a .csv file instead of a list inside the program
+- Journal is saved and load using .csv files
+- Functionality added: In case the saved file already exist will append entries to the file instead of overwritting
+*/
 
 class Program
 {
