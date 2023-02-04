@@ -19,6 +19,7 @@ class Program
 
             if (isScriptureComplete == true)
             {
+                newScripture.DisplayScripture();
                 Console.WriteLine("Scripture completed!");
                 break;
             }
