@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.Clear();
+
         Reference newReference = new Reference("John",3,16);
 
         Scripture newScripture = new Scripture (newReference,"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.");
@@ -12,6 +14,8 @@ class Program
 
         bool isScriptureComplete = false;
 
+        Console.WriteLine("Welcome to Scripture Memorizer v1.0:");
+        
         do
         {
 
@@ -23,6 +27,7 @@ class Program
                 Console.WriteLine("Scripture completed!");
                 break;
             }
+
 
             newScripture.DisplayScripture();
 
@@ -37,7 +42,7 @@ class Program
             } while (answer != "quit" && answer != "");
             
             newScripture.HideWords();
-            
+            Console.Clear();
             
 
         } while (answer != "quit");

@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 
 public class Word
 {
@@ -30,10 +31,26 @@ public class Word
     public void Hide()
     {
         _shown = false;
-        string replacement ="";
-        for (int i = 0 ; i < _word.Length ; i++)
+        string replacement = "";
+        bool letterCheck;
+        /*for (int i = 0 ; i < _word.Length ; i++)
         {
             replacement =  replacement + "_";
+        }
+     
+        _word = replacement;*/
+
+        foreach (char character in _word)
+        {
+            letterCheck = Char.IsLetter(character);
+            if (letterCheck == true)
+            {
+                replacement = replacement + "_";
+            }
+            else
+            {
+                replacement = replacement + character;
+            } 
         }
         _word = replacement;
     }
