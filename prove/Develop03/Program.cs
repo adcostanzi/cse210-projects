@@ -14,20 +14,12 @@ class Program
 
         data.LoadData();
 
-        string book;
-
-        int chapter;
-
-        int initialVerse;
-
-        int endVerse;
-
-        string text;
-
         string userOption; 
 
         data.DisplayData();
+
         bool testResponse;
+        
         do
         {
         Console.Write("What scripture would you like to study? ");
@@ -41,15 +33,15 @@ class Program
 
         data.GetScripture(userOption);
 
-        book = data.GetBook();
+        string book = data.GetBook();
 
-        chapter = data.GetChapter();
+        int chapter = data.GetChapter();
 
-        initialVerse = data.GetInitialVerse();
+        int initialVerse = data.GetInitialVerse();
 
-        endVerse = data.GetEndVerse();
+        int endVerse = data.GetEndVerse();
         
-        text = data.GetText();
+        string text = data.GetText();
         
         Reference newReference = new Reference(book,chapter,initialVerse, endVerse);
         Scripture newScripture = new Scripture (newReference,text);
@@ -59,7 +51,7 @@ class Program
         bool isScriptureComplete = false;
 
         Console.Clear();
-        
+
         do
         {
 
