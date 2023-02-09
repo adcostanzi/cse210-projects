@@ -33,13 +33,6 @@ public class Word
         _shown = false;
         string replacement = "";
         bool letterCheck;
-        /*for (int i = 0 ; i < _word.Length ; i++)
-        {
-            replacement =  replacement + "_";
-        }
-     
-        _word = replacement;*/
-
         foreach (char character in _word)
         {
             letterCheck = Char.IsLetter(character);

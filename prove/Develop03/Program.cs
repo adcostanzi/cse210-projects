@@ -6,15 +6,59 @@ class Program
     {
         Console.Clear();
 
-        Reference newReference = new Reference("John",3,16);
+        Console.WriteLine("Welcome to Scripture Memorizer v1.0:");
 
-        Scripture newScripture = new Scripture (newReference,"For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.");
+        Console.WriteLine("Please choose a scripture from the list to study: ");
+
+        Database data = new Database();
+
+        data.LoadData();
+
+        string book;
+
+        int chapter;
+
+        int initialVerse;
+
+        int endVerse;
+
+        string text;
+
+        string userOption; 
+
+        data.DisplayData();
+        bool testResponse;
+        do
+        {
+        Console.Write("What scripture would you like to study? ");
+        userOption = Console.ReadLine();
+        testResponse = data.IsOptionViable(userOption);
+        if (testResponse == false)
+        {
+            Console.WriteLine("\nInvalid option. Please Try again.\n");
+        }
+        } while (testResponse!=true);
+
+        data.GetScripture(userOption);
+
+        book = data.GetBook();
+
+        chapter = data.GetChapter();
+
+        initialVerse = data.GetInitialVerse();
+
+        endVerse = data.GetEndVerse();
+        
+        text = data.GetText();
+        
+        Reference newReference = new Reference(book,chapter,initialVerse, endVerse);
+        Scripture newScripture = new Scripture (newReference,text);
     
         string answer;
 
         bool isScriptureComplete = false;
 
-        Console.WriteLine("Welcome to Scripture Memorizer v1.0:");
+        Console.Clear();
         
         do
         {
