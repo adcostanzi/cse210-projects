@@ -31,20 +31,7 @@ class Program
         }
         } while (testResponse!=true);
 
-        data.GetScripture(userOption);
-
-        string book = data.GetBook();
-
-        int chapter = data.GetChapter();
-
-        int initialVerse = data.GetInitialVerse();
-
-        int endVerse = data.GetEndVerse();
-        
-        string text = data.GetText();
-        
-        Reference newReference = new Reference(book,chapter,initialVerse, endVerse);
-        Scripture newScripture = new Scripture (newReference,text);
+        Scripture newScripture = data.GetScripture(userOption);      
     
         string answer;
 
@@ -60,7 +47,8 @@ class Program
             if (isScriptureComplete == true)
             {
                 newScripture.DisplayScripture();
-                Console.WriteLine("Scripture completed!");
+                Console.WriteLine("Scripture completed! Press any key to finish");
+                Console.ReadLine();
                 break;
             }
 

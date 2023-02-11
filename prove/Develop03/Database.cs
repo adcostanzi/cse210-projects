@@ -1,16 +1,7 @@
 
 public class Database
 {
-    private List<Tuple<string, int, int, int, string>> _data = new List<Tuple<string, int, int, int, string>>();
-
-    private string _book;
-    private int _chapter;
-
-    private int _initialVerse;
-
-    private int _endVerse;
-
-    private string _text;
+    private List<Scripture> _data = new List<Scripture>();
 
     public Database()
     {
@@ -34,21 +25,23 @@ public class Database
 
             int endVerse;
 
+            string text = parts[4].Replace("&",";");
+
+
             if (parts[3] == "")
             {
                 endVerse = 0;
+                Reference newReference = new Reference(book,chapter,initialVerse);
+                Scripture newScripture = new Scripture(newReference, text);
+                _data.Add(newScripture);   
             }
             else
             {
                 endVerse = int.Parse(parts[3]);
-            }
-
-            string text = parts[4];
-            
-            var scripture = new Tuple<string, int, int, int, string>(book, chapter, initialVerse, endVerse, text);
-
-            _data.Add(scripture);   
-            
+                Reference newReference = new Reference(book,chapter,initialVerse,endVerse);
+                Scripture newScripture = new Scripture(newReference, text); 
+                _data.Add(newScripture);   
+            }  
         }    
     }
 
@@ -56,62 +49,21 @@ public class Database
     {
         for (int i = 0; i < _data.Count; i++)
         {
-            string book = _data[i].Item1;
-                       
-            int chapter = _data[i].Item2;
-            
-            int initialVerse = _data[i].Item3;
-
-            int endVerse = _data[i].Item4;
-
-            if (endVerse == 0)
-            {
-                Console.WriteLine($"{i+1}. {book} {chapter}:{initialVerse}");
-            }
-            else
-            {
-                Console.WriteLine($"{i+1}. {book} {chapter}:{initialVerse}-{endVerse}");
-            }
+            string reference = _data[i].DisplayReferenceOnly();
+            Console.Write($"{i+1}. {reference}");
+            Console.Write("\n");
             
         }
     }
 
-    public string GetBook()
-    {
-        return _book;
-    }
 
-    public int GetChapter()
+    public Scripture GetScripture(string response)
     {
-        return _chapter;
-    }
-
-    public int GetInitialVerse()
-    {
-        return _initialVerse;
-    }
-
-    public int GetEndVerse()
-    {
-        return _endVerse;
-    }
-
-    public string GetText()
-    {
-        return _text.Replace("&",";");
-    }
-
-    public void GetScripture(string response)
-    {
+        
         int option = int.Parse(response);
         option --;
         
-        _book = _data[option].Item1;
-        _chapter = _data[option].Item2;
-        _initialVerse = _data[option].Item3;
-        _endVerse = _data[option].Item4;
-        _text = _data[option].Item5;
-        
+        return _data[option];
     }
 
     public bool IsOptionViable(string option)

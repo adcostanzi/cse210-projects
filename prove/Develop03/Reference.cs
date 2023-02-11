@@ -10,6 +10,8 @@ public class Reference
 
     private int _endVerse;
 
+
+
     public Reference(string book, int chapter, int verse)
     {
         _book = book;

@@ -18,7 +18,7 @@ public class Scripture
         {
             Word newWord = new Word(part);
 
-             _renderedText.Add(newWord);
+            _renderedText.Add(newWord);
 
         }
         
@@ -43,6 +43,11 @@ public class Scripture
         Console.WriteLine(text + "\n");
     }
 
+    public string DisplayReferenceOnly()
+    {
+        string reference = _reference.GetReference();
+        return reference;
+    }
 
     public void HideWords()
     {
