@@ -59,7 +59,6 @@ public class Database
 
     public Scripture GetScripture(string response)
     {
-        
         int option = int.Parse(response);
         option --;
         
