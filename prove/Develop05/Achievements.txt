@@ -1,0 +1,11 @@
+1&0-499 points (Bonus points if completed: 250)&500&250&False
+2&500-1499 points (Bonus points if completed: 250)&1500&250&False
+3&1500-2999 points (Bonus points if completed: 500)&3000&500&False
+4&3000-4999 points (Bonus points if completed: 500)&5000&500&False
+5&5000-7499 points (Bonus points if completed: 500)&7500&500&False
+6&7500-9999 points (Bonus points if completed: 750)&10000&750&False
+7&10000-14999 points (Bonus points if completed: 750)&15000&750&False
+8&15000-19999 points (Bonus points if completed: 1000)&20000&1000&False
+9&20000-24999 points (Bonus points if completed: 1000)&25000&1000&False
+10&25000-49999 points (Bonus points if completed: 1000)&50000&1000&False
+11&GOAL MASTER&100000&10000&False
